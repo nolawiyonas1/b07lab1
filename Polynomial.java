@@ -47,6 +47,3 @@ public class Polynomial {
         return evaluate(x) == 0.0;
     }
 }
-
-
-// TEST WITH MORE TEST CASES !!!
