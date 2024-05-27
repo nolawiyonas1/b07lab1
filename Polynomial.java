@@ -1,4 +1,4 @@
-public class Polynomial {
+public class Polynomial { 
     double coefficients[];
 
     public Polynomial(){
@@ -47,3 +47,6 @@ public class Polynomial {
         return evaluate(x) == 0.0;
     }
 }
+
+
+// LAB 2 BRANCH
