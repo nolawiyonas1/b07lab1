@@ -1,19 +1,52 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Driver {
-	public static void main(String [] args) {
-		Polynomial p = new Polynomial();
-		System.out.println(p.evaluate(3));
-		double [] c1 = {6,0,0,5};
-		Polynomial p1 = new Polynomial(c1);
-		double [] c2 = {0,-2,0,0,-9};
-		Polynomial p2 = new Polynomial(c2);
-		Polynomial s = p1.add(p2);
-		System.out.println("s(0.1) = " + s.evaluate(0.1));
-		if(s.hasRoot(1))
-			System.out.println("1 is a root of s");
-		else
-			System.out.println("1 is not a root of s");
-	}
+    public static void main(String[] args) {
+        Polynomial test6 = new Polynomial(new double[] {2.34, -5.67, 8.9}, new int[] {3, 2, 1});
+        Polynomial test7 = new Polynomial(new double[] {-3.21, 4.56}, new int[] {2, 5});
+
+        Polynomial result3 = test7.multiply(test6);
+
+        try {
+            result3.saveToFile("file1.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(result3.evaluate(-10.5));
+
+        result3 = test6.multiply(test7);
+        System.out.println(result3.evaluate(-10.5));
+
+        result3 = test6.add(test7);
+        System.out.println(result3.evaluate(10.5));
+
+        result3 = test7.add(test6);
+        System.out.println(result3.evaluate(10.5));
+
+        try {
+            result3.saveToFile("file2.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Contents of file1.txt:");
+        displayFileContents("file1.txt");
+
+        System.out.println("Contents of file2.txt:");
+        displayFileContents("file2.txt");
+    }
+
+    public static void displayFileContents(String filename) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
-
-
-// LAB 2 BRANCH
