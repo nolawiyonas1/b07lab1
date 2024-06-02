@@ -1,1 +1,1 @@
-first b07 lab :)
+The Polynomial class represents a polynomial using an array of coefficients, where each index corresponds to the power of x for that coefficient. It provides methods for adding two polynomials, evaluating the polynomial for a given x value, and checking if a given x value is a root of the polynomial.
