@@ -9,8 +9,8 @@ public class Polynomial {
     int exponents[];
 
     public Polynomial(){
-        this.nonZeroCoefficients = new double[0];
-        this.exponents = new int[0];
+        this.nonZeroCoefficients = null;
+        this.exponents = null;
     }
 
     public Polynomial(double nonZeroCoefficients[], int exponents[]){
